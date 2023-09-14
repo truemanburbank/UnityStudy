@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-    static Managers s_instance; // À¯ÀÏ¼ºÀÌ º¸ÀåµÈ´Ù.
-    public static Managers Instance { get { Init();  return s_instance; } } // À¯ÀÏÇÑ ¸Å´ÏÀú¸¦ °®°í ¿Â´Ù.
+    static Managers s_instance; // ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
+    static Managers Instance { get { Init();  return s_instance; } } // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½.
+
+    InputManager _input = new InputManager();
+    public static InputManager input { get { return Instance._input; } }
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +19,7 @@ public class Managers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _input.OnUpdate();
     }
 
     static void Init()
