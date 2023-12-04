@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // 구독 신청
-        Managers.input.KeyAction -= OnKeyboard; // 중복 구독 신청 방지 
-        Managers.input.KeyAction += OnKeyboard; // inputmanager에게 혹시라도 어떤 키가 눌리면 OnKeyboard 함수를 실행하도록 명령
+        Managers.Input.KeyAction -= OnKeyboard; // 중복 구독 신청 방지 
+        Managers.Input.KeyAction += OnKeyboard; // inputmanager에게 혹시라도 어떤 키가 눌리면 OnKeyboard 함수를 실행하도록 명령
     }
 
     void OnKeyboard()
     {
-
-
         if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 0.2f);
