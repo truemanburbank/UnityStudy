@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager
 {
@@ -12,6 +13,9 @@ public class InputManager
 
     public void OnUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Input.anyKey && KeyAction != null)
             // 키 액션이 존재하였다고 전파 
             KeyAction.Invoke();
