@@ -28,10 +28,8 @@ public class UI_Inventory : UI_Scene
 
         for(int i = 0; i < 8; i++)
         {
-            GameObject item = Managers.Resource.Instantiate("UI/Scene/UI_Inventory_Item");
-            item.transform.SetParent(gridPanel.transform);
-
-            UI_Inventory_Item invenItem = Util.GetOrAddComponent<UI_Inventory_Item>(item);
+            GameObject item = Managers.UI.MakeSubItem<UI_Inventory_Item>(parent: gridPanel.transform).gameObject;
+            UI_Inventory_Item invenItem = item.GetOrAddComponent<UI_Inventory_Item>();
             invenItem.SetInfo($"knife {i}");
         }
     }
