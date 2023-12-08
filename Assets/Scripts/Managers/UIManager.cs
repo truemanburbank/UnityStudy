@@ -46,7 +46,7 @@ public class UIManager
         T sceneUI = Util.GetOrAddComponent<T>(go);
         _sceneUI = sceneUI;
 
-        go.transform.parent.SetParent(Root.transform);
+        go.transform.SetParent(Root.transform);
 
         return sceneUI;
     }
@@ -60,7 +60,7 @@ public class UIManager
         T popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
 
-        go.transform.parent.SetParent(Root.transform);
+        go.transform.SetParent(Root.transform);
 
         return popup;
     }

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
         // 구독 신청 
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
+
+        Managers.UI.ShowSceneUI<UI_Inventory>();
     }
 
     void UpdateDie()
