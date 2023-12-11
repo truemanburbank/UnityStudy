@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    void Start()
-    {
-        Init();
-    }
-
     protected override void Init()
     {
         base.Init();
