@@ -11,6 +11,15 @@ public class GameScene : BaseScene
         SceneType = Define.Scene.Game;
 
         Managers.UI.ShowSceneUI<UI_Inventory>();
+
+        Coroutine co = StartCoroutine("ExplodeAfterSeconds", 4.0f);
+
+        StopCoroutine(co);
+    }
+
+    IEnumerator ExplodeAfterSeconds(float seconds)
+    { 
+        yield return new WaitForSeconds(seconds);
     }
 
     public override void Clear()
