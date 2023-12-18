@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     public GameObject _player = null;
 
+    public void SetPlayer(GameObject player) { _player = player; }
+
     void Start()
     {
         
@@ -20,10 +22,13 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
+        if (_player.IsValid() == false)
+            return;
+
         if (_mode == Define.CameraMode.QuarterView)
         {
             RaycastHit hit;
-            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
+            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, 1 << (int)Define.Layer.Block))
             {
                 // 벽과 플레이어 사이의 벡터를 구해서 카메라가 살짝 앞으로 가도록 값을 수정함.
                 float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
